@@ -4,10 +4,18 @@
 const float A = 1.009249522e-03;  // Hằng số Steinhart-Hart, xem datasheet ntc
 const float B = 2.378405444e-04;
 const float C = 2.019202697e-07;
-const float dientro = 10000;  // Điện trở nối tiếp 10kΩ,có thể chọn cái khác
+const float dientro = 10000;  // Điện trở nối tiếp với NTC: 10kΩ,có thể chọn dien tro khác
 
 NTCtemp ntc(dientro,A,B,C);
-// biến để chạy 1 giây 1 lần
+// code này khi dùng hệ số beta
+/*const float nominalResistance = 10000;  // 10kΩ tại 25°C
+const float nominalTemperature = 25;    // 25°C là nhiệt độ tham chiếu
+const float beta = 3950;                // Hệ số Beta từ datasheet
+const float dientro = 10000;     // Điện trở nối tiếp 10kΩ
+NTCtemp ntc(dientro, nominalResistance, nominalTemperature, beta);
+*/
+
+// biến thời gian để chạy 1 giây 1 lần
 unsigned long previousMillis1 = 0;
 const long interval1 = 1000; //1s
 void setup() {
